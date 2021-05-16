@@ -5,8 +5,13 @@ sys.path.append("../")
 
 import numpy as np
 from azimuthal_average import take_azimuthal_average
-
-CASE_DIR = r"C:\Users\Testing\Documents\Virtual Machines\Shared Folder\may_runs\reduced_wall_gradient"
+import argparse
+parser = argparse.ArgumentParser()
+parser.add_argument("-c", "--case-dir",
+                     help="Path to OpenFOAM case directory.",
+                     type=str, default=".")
+args = parser.parse_args()
+CASE_DIR = args.case_dir
 RELATIVE_CSV_DIR = "slice_csv_files"
 CSV_DIR = os.path.join(CASE_DIR, RELATIVE_CSV_DIR)
 
