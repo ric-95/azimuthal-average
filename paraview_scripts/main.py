@@ -2,7 +2,10 @@ from paraview.simple import *
 import sys
 import math
 import os
-
+import argparse
+parser = argparse.ArgumentParser()
+parser.add_argument("-c", "--case-dir", type=str)
+args = parser.parse_args()
 paraview.simple._DisableFirstRenderCameraReset()
 
 SCRIPTS_DIR = r"C:\Users\Testing\PycharmProjects\azimuthal_average\paraview_scripts"
@@ -16,7 +19,7 @@ import export_slice_to_csv as esc
 # import export_slice_to_csv as esc
 # import load_openfoam_case as lc
 
-CASE_DIR = r"C:\Users\Testing\Documents\Virtual Machines\Shared Folder\may_runs\reduced_wall_gradient"
+CASE_DIR = args.case_dir
 NUMBER_OF_SLICES = 16
 DELTA_RES = 0.00025
 ORIGIN_VECTOR = [0, 0, 0]

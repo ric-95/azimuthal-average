@@ -20,12 +20,9 @@ def get_rotation_matrix(theta):
     )
 
 
-
 r"""
 /*---------------------------------*\
-
              VECTORS
-
 \*---------------------------------*/
 """
 
@@ -36,11 +33,8 @@ class CartesianVector:
     Instance attributes:
 
     self.vector -- numpy array containing the vector
-
     self.x -- radial component
-
     self.y -- azimuthal component
-
     self.z -- axial component
     """
 
@@ -79,11 +73,8 @@ class CylindricalVector:
     Instance attributes:
 
     self.vector -- numpy array containing the vector
-
     self.r -- radial component
-
     self.t -- azimuthal component
-
     self.z -- axial component
     """
 
@@ -113,9 +104,7 @@ class CylindricalVector:
 
 r"""
 /*---------------------------------*\
-
              TENSORS
-
 \*---------------------------------*/
 """
 
@@ -186,4 +175,3 @@ class SymmetricCylindricalTensor:
         else:
             columns = SymmetricCylindricalTensor.list_of_components
         return pd.DataFrame(data=self.symm_array, columns=columns)
-
