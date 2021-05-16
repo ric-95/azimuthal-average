@@ -123,7 +123,8 @@ def transform_df_to_cylindric_coordinates(dataframe, theta, copy=True):
             *wall_shear_stress_labels,
             *common.r_stress_paraview_cart_coords(),
             *common.umean_paraview_cart_coords()
-        ]
+        ],
+        errors="ignore"
     )
 
 
