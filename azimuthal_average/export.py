@@ -11,9 +11,9 @@ def to_tecplot(df, var_list):
 
     tp.session.connect()
     dataset = tp.active_frame().create_dataset("Data", var_list)
-    shape = _get_2D_shape(df)
+    shape = _get_2D_shape(df, "r", "z")
     numerical_zone = dataset.add_ordered_zone("Numerical", shape=shape)
-    export_variables_from_dataframe(df, var_list, numerical_zone)
+    _export_variables_from_dataframe(df, var_list, numerical_zone)
     print("Finished exporting to tecplot.")
 
 
@@ -37,15 +37,15 @@ def _add_var_to_zone(zone, var, values):
 
 def _get_variable_values(df, var):
     try:
-        return df[var].to_numpy()
+        return df[var].to_numpy(), True
     except KeyError:
-        return False
+        return None, False
 
 
 def _export_variables_from_dataframe(df, var_list, zone):
     for var in var_list:
-        values = get_variable_values(df, var)
-        if not values:
+        values, found = _get_variable_values(df, var)
+        if not found:
             print(f"{var} missing. Skipped.")
             continue
-        _add_var_to_zone(numerical_zone, var, values)
+        _add_var_to_zone(zone, var, values)

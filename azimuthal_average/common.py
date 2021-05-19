@@ -13,11 +13,11 @@ def cartesian_vec_coords():
 
 
 def umean_cyl_coods():
-    return [f"u_{coord}" for coord in cylindrical_vec_coords()]
+    return [f"u_mean_{coord}" for coord in cylindrical_vec_coords()]
 
 
 def umean_cart_coors():
-    return [f"u_{coord}" for coord in cartesian_vec_coords()]
+    return [f"u_mean_{coord}" for coord in cartesian_vec_coords()]
 
 
 def paraview_cart_coords():

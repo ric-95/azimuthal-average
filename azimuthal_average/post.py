@@ -1,4 +1,6 @@
 import azimuthal_average.common as common
+from azimuthal_average.data_types import SymmetricCylindricalTensor
+import numpy as np
 
 
 def process(slice_df, length_ref, u_ref):
@@ -74,7 +76,7 @@ def calculate_derived_properties(slice_df, normalized=False):
         r_keys = common.r_stress_cyl_coords()
 
     reynolds_stress = (
-        dt.SymmetricCylindricalTensor(
+        SymmetricCylindricalTensor(
             slice_df[r_keys].to_numpy()
         ).tensor_stack
     )
