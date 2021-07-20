@@ -1,3 +1,6 @@
+import os
+
+
 def check_create_dir(dir_):
     if not os.path.isdir(dir_):
         os.makedirs(dir_)
@@ -30,7 +33,6 @@ def umean_paraview_cart_coords():
 
 def r_stress_paraview_cart_coords():
     return [f"UPrime2Mean_{i}" for i in range(6)]
-
 
 
 def r_stress_cyl_coords():
