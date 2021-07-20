@@ -46,7 +46,7 @@ def update_running_average(running_average, n, new_obs):
 
 
 def process_slice(slice_df, slice_number, theta, running_average, copy=True,
-                   write_intermediate=False):
+                   write_intermediate=False, csv_dir="."):
 
 
     cylindrical_slice_df = transform_df_to_cylindric_coordinates(slice_df,
@@ -66,6 +66,7 @@ def process_slice(slice_df, slice_number, theta, running_average, copy=True,
 
 def calculate_slice_theta(slice_number, total_slices):
     return (slice_number/total_slices)*np.pi*2
+
 
 def take_azimuthal_average(csv_dir, write_intermediate=False, copy=True):
     """Take the azimuthal average of all the csv files within a given directory.
