@@ -1,8 +1,5 @@
 import os
 import sys
-
-sys.path.append("../")
-
 import numpy as np
 from azimuthal_average import take_azimuthal_average
 import argparse
