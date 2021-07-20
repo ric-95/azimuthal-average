@@ -5,6 +5,7 @@ import os
 import argparse
 parser = argparse.ArgumentParser()
 parser.add_argument("-c", "--case-dir", type=str)
+parser.add_argument("--num-slices", type=int, default=16)
 args = parser.parse_args()
 paraview.simple._DisableFirstRenderCameraReset()
 
@@ -20,7 +21,7 @@ import export_slice_to_csv as esc
 # import load_openfoam_case as lc
 
 CASE_DIR = args.case_dir
-NUMBER_OF_SLICES = 16
+NUMBER_OF_SLICES = args.num_slices
 DELTA_RES = 0.00025
 ORIGIN_VECTOR = [0, 0, 0]
 RADIUS = 0.09
@@ -80,7 +81,8 @@ def export_all_slices_to_csv(case_dir,
         )
 
         print("Outputting to csv files")
-        render_view = esc.export_slice_to_csv(render_view=render_view, output_file=output_file)
+        render_view = esc.export_slice_to_csv(render_view=render_view,
+                                              output_file=output_file)
 
 
 def main():
